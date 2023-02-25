@@ -14,12 +14,14 @@ class OlympicTeamGenerator {
         return team
     }
 
-    fun generateTeamAndWriteToJSON(size: Int) {
+    fun generateTeamAndWriteToJSON(size: Int): OlympicTeam {
         val olympicTeam = generateTeam(size)
         FileWriter("src/main/resources/testData/$size.json").use { writer ->
             val gsonPretty = GsonBuilder().setPrettyPrinting().create()
             gsonPretty.toJson(olympicTeam, writer)
         }
+
+        return olympicTeam
     }
 
     fun generateTeamsOfDifferentSizes(sizes: Array<Int> = arrayOf(100, 500, 1000, 5000, 10000, 50000, 100000)) {

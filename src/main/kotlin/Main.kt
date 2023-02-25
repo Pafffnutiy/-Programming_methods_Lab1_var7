@@ -1,13 +1,10 @@
-import generators.OlympicTeamGenerator
 import java.io.File
-import java.io.FileWriter
-import java.util.Collections.swap
 import kotlin.system.measureTimeMillis
+
 
 val sizes = listOf(100, 500, 1000, 5000, 10000, 50000, 100000)
 
 fun main() {
-//    OlympicTeamGenerator().generateTeamAndWriteToJSON(6)
     File("src/main/resources/time.txt").printWriter().use { writer ->
 
         fun sortAllBySimpleInserts() {
@@ -36,10 +33,22 @@ fun main() {
             }
         }
 
+        fun sortAllByPyramidSort() {
+            writer.println("\nPyramid sort:")
+            for (size in sizes) {
+                val team = OlympicTeamReader().readTeamFromJSON("$size.json")
+                val sortedTeam: OlympicTeam
+                val timeToSort = measureTimeMillis { sortedTeam = team.sortPyramid() }
+
+                writer.println("\t$size: ${timeToSort}ms")
+
+                sortedTeam.writeTeamToJSON("sortedByPyramidSort/$size.json")
+            }
+        }
+
 
         sortAllBySimpleInserts()
         sortAllByQuickSort()
+        sortAllByPyramidSort()
     }
-
-
 }

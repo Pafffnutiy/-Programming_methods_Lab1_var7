@@ -7,6 +7,7 @@ import com.google.gson.Gson
 import io.github.serpro69.kfaker.Faker
 import java.io.FileReader
 
+
 class SportsmanGenerator {
     fun generateSportsman() : Sportsman {
         val faker = Faker()
@@ -38,8 +39,8 @@ class SportsmanGenerator {
     }
 
     private companion object {
-        const val DATA_BASES_PATH = "src/main/resources/Databases"
-        const val NAMES_DATABASE_PATH = "$DATA_BASES_PATH/NamesDatabase.json"
-        const val SPORTS_DATABASE_PATH = "$DATA_BASES_PATH/SportsDatabase.json"
+        const val DATABASES_PATH = "src/main/resources/Databases"
+        const val NAMES_DATABASE_PATH = "$DATABASES_PATH/NamesDatabase.json"
+        const val SPORTS_DATABASE_PATH = "$DATABASES_PATH/SportsDatabase.json"
     }
 }

@@ -1,6 +1,7 @@
 import com.google.gson.GsonBuilder
 import java.io.FileWriter
 
+
 class OlympicTeam(var team: List<Sportsman> = listOf()) {
     operator fun plusAssign(sportsman: Sportsman) {
         team += sportsman
@@ -15,6 +16,15 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
     }
 
     operator fun get(index: Int) = team[index]
+
+    override fun equals(other: Any?): Boolean {
+        if (other !is OlympicTeam) return false
+        return  team == other.team
+    }
+
+    fun sort(): OlympicTeam {
+        return OlympicTeam(team.sorted())
+    }
 
     fun sortSimpleInserts(): OlympicTeam {
         val sortedTeam = team.toMutableList()
@@ -31,8 +41,24 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
         return OlympicTeam(sortedTeam)
     }
 
-    fun sortPyramid() {
+    fun sortPyramid(): OlympicTeam {
+        val sortedTeam = team
+        val sortedTeamArray = sortedTeam.toTypedArray()
+        var i = sortedTeam.size / 2 - 1
+        while (i >= 0) {
+            // build pyramid
+            downHeap(sortedTeamArray, i, sortedTeamArray.size - 1)
+            i--
+        }
+        // now a[0]...a[size-1] is a pyramid
+        i = sortedTeamArray.size - 1
+        while (i > 0) {
+            sortedTeamArray[i] = sortedTeamArray[0].also { sortedTeamArray[0] = sortedTeamArray[i] }
+            downHeap(sortedTeamArray, 0, i - 1) // restore the pyramid a[0]...a[i-1]
+            i--
+        }
 
+        return OlympicTeam(sortedTeamArray.toList())
     }
 
     fun sortQuick(): OlympicTeam {
@@ -56,4 +82,28 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
             gsonPretty.toJson(this, writer)
         }
     }
+
+    private fun downHeap(arr: Array<Sportsman>, k: Int, n: Int) {
+        var child: Int
+        val newElem = arr[k]
+        var k1 = k
+
+        while (k1 <= n / 2) {  // while a[k] has childs
+            child = 2 * k1
+            //  choose bigger son
+            if (child < n && arr[child] < arr[child + 1])
+                child++
+
+            if (newElem >= arr[child]) break
+            // otherwise
+            arr[k1] = arr[child];    // move the son up
+            k1 = child;
+        }
+        arr[k1] = newElem;
+    }
+
+    override fun hashCode(): Int {
+        return team.hashCode()
+    }
+
 }
