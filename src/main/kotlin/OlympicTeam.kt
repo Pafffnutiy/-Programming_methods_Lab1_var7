@@ -1,31 +1,75 @@
 import com.google.gson.GsonBuilder
 import java.io.FileWriter
 
-
+/**
+ * Class of OlympicTeam
+ * @constructor create object by List of Sportsman
+ * @author Pavel Zilbershteyn
+ */
 class OlympicTeam(var team: List<Sportsman> = listOf()) {
+    /**
+     * Overriding of operator += for case
+     * OlympicTeam += Sportsman
+     * @param sportsman
+     * @return Unit
+     */
     operator fun plusAssign(sportsman: Sportsman) {
         team += sportsman
     }
 
+    /**
+     * Overriding of operator + for case
+     * OlympicTeam + Sportsman
+     * @param sportsman
+     * @return OlympicTeam
+     */
     operator fun plus(sportsman: Sportsman): OlympicTeam {
         return OlympicTeam(team + sportsman)
     }
 
+    /**
+     * Overriding of operator + for case
+     * OlympicTeam + OlympicTeam
+     * @param otherTeam
+     * @return OlympicTeam
+     */
     operator fun plus(otherTeam: OlympicTeam): OlympicTeam {
         return OlympicTeam(team + otherTeam.team)
     }
 
-    operator fun get(index: Int) = team[index]
+    /**
+     * Overriding of indexing operator []
+     * @param index
+     * @return Sportsman
+     */
+    operator fun get(index: Int): Sportsman = team[index]
 
+    /**
+     * Overriding of equals (==) between two OlympicTeam objects
+     * If b isn't OlympicTeam returns false
+     * @param other Any object
+     * @return true if this.team==other.team
+     * and false otherwise
+     */
     override fun equals(other: Any?): Boolean {
         if (other !is OlympicTeam) return false
         return  team == other.team
     }
 
+    /**
+     * Kotlin sorting
+     * @param Empty
+     * @return sorted OlympicTeam
+     */
     fun sort(): OlympicTeam {
         return OlympicTeam(team.sorted())
     }
 
+    /**
+     * Sorting by simple inserts
+     * @param Empty
+     * @return sorted OlympicTeam
+     */
     fun sortSimpleInserts(): OlympicTeam {
         val sortedTeam = team.toMutableList()
         for (index in 1 until sortedTeam.size) {
@@ -41,6 +85,11 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
         return OlympicTeam(sortedTeam)
     }
 
+    /**
+     * Pyramid sorting
+     * @param Empty
+     * @return sorted OlympicTeam
+     */
     fun sortPyramid(): OlympicTeam {
         val sortedTeam = team
         val sortedTeamArray = sortedTeam.toTypedArray()
@@ -53,7 +102,9 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
         // now a[0]...a[size-1] is a pyramid
         i = sortedTeamArray.size - 1
         while (i > 0) {
-            sortedTeamArray[i] = sortedTeamArray[0].also { sortedTeamArray[0] = sortedTeamArray[i] }
+            sortedTeamArray[i] = sortedTeamArray[0].also {
+                sortedTeamArray[0] = sortedTeamArray[i]
+            }
             downHeap(sortedTeamArray, 0, i - 1) // restore the pyramid a[0]...a[i-1]
             i--
         }
@@ -61,6 +112,11 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
         return OlympicTeam(sortedTeamArray.toList())
     }
 
+    /**
+     * Quick sorting
+     * @param Empty
+     * @return sorted OlympicTeam
+     */
     fun sortQuick(): OlympicTeam {
         val sortedTeam = team
 
@@ -76,6 +132,11 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
                 OlympicTeam(greaterThanPivot).sortQuick()
     }
 
+    /**
+     * Writing team to JSON file "src/main/resources/[filename]"
+     * @param filename name of JSON file
+     * @return Unit
+     */
     fun writeTeamToJSON(filename: String) {
         FileWriter("src/main/resources/$filename").use { writer ->
             val gsonPretty = GsonBuilder().setPrettyPrinting().create()
@@ -83,6 +144,13 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
         }
     }
 
+    /**
+     * helper for Pyramid sorting
+     * @param arr Array of Sportsmen
+     * @param k start index
+     * @param n end index
+     * @return Unit
+     */
     private fun downHeap(arr: Array<Sportsman>, k: Int, n: Int) {
         var child: Int
         val newElem = arr[k]
@@ -102,6 +170,11 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
         arr[k1] = newElem;
     }
 
+    /**
+     * Overriding hashCode fun
+     * @param Empty
+     * @return hashCode as Int
+     */
     override fun hashCode(): Int {
         return team.hashCode()
     }

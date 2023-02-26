@@ -7,13 +7,29 @@ import com.google.gson.Gson
 import io.github.serpro69.kfaker.Faker
 import java.io.FileReader
 
-
+/**
+ * Sportsman Generation class
+ * @author Pavel Zilbershteyn
+ * @constructor Empty
+ */
 class SportsmanGenerator {
+    /**
+     * Generate sportsman with information from databases
+     * @param Empty
+     * @return Sportsman
+     */
     fun generateSportsman() : Sportsman {
         val faker = Faker()
         val gson = Gson()
-        val namesDatabase: NamesDatabase = gson.fromJson(FileReader(NAMES_DATABASE_PATH), NamesDatabase::class.java)
-        val sportsDatabase: SportsDatabase = gson.fromJson(FileReader(SPORTS_DATABASE_PATH), SportsDatabase::class.java)
+        val namesDatabase: NamesDatabase = gson.fromJson(
+            FileReader(NAMES_DATABASE_PATH),
+            NamesDatabase::class.java
+        )
+
+        val sportsDatabase: SportsDatabase = gson.fromJson(
+            FileReader(SPORTS_DATABASE_PATH),
+            SportsDatabase::class.java
+        )
 
         lateinit var firstName: String
         lateinit var middleName: String
