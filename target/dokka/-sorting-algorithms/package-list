@@ -1,0 +1,56 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:////PointingToDeclaration/-sorting-algorithms/[root]/index.html
+$dokka.location://main/#/PointingToDeclaration/-sorting-algorithms/[root]/main.html
+$dokka.location://sizes/#/PointingToDeclaration/-sorting-algorithms/[root]/sizes.html
+$dokka.location:/OlympicTeam///PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/index.html
+$dokka.location:/OlympicTeam/OlympicTeam/#kotlin.collections.List[Sportsman]/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/-olympic-team.html
+$dokka.location:/OlympicTeam/equals/#kotlin.Any?/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/equals.html
+$dokka.location:/OlympicTeam/get/#kotlin.Int/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/get.html
+$dokka.location:/OlympicTeam/hashCode/#/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/hash-code.html
+$dokka.location:/OlympicTeam/plus/#OlympicTeam/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/plus.html
+$dokka.location:/OlympicTeam/plus/#Sportsman/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/plus.html
+$dokka.location:/OlympicTeam/plusAssign/#Sportsman/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/plus-assign.html
+$dokka.location:/OlympicTeam/sort/#/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/sort.html
+$dokka.location:/OlympicTeam/sortPyramid/#/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/sort-pyramid.html
+$dokka.location:/OlympicTeam/sortQuick/#/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/sort-quick.html
+$dokka.location:/OlympicTeam/sortSimpleInserts/#/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/sort-simple-inserts.html
+$dokka.location:/OlympicTeam/team/#/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/team.html
+$dokka.location:/OlympicTeam/writeTeamToJSON/#kotlin.String/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team/write-team-to-j-s-o-n.html
+$dokka.location:/OlympicTeamReader///PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team-reader/index.html
+$dokka.location:/OlympicTeamReader/OlympicTeamReader/#/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team-reader/-olympic-team-reader.html
+$dokka.location:/OlympicTeamReader/readTeamFromJSON/#kotlin.String/PointingToDeclaration/-sorting-algorithms/[root]/-olympic-team-reader/read-team-from-j-s-o-n.html
+$dokka.location:/Sportsman///PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/index.html
+$dokka.location:/Sportsman/Sportsman/#kotlin.String#kotlin.UInt#kotlin.UInt#kotlin.UInt#kotlin.String/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/-sportsman.html
+$dokka.location:/Sportsman/age/#/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/age.html
+$dokka.location:/Sportsman/compareTo/#Sportsman/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/compare-to.html
+$dokka.location:/Sportsman/equals/#kotlin.Any?/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/equals.html
+$dokka.location:/Sportsman/fullName/#/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/full-name.html
+$dokka.location:/Sportsman/hashCode/#/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/hash-code.html
+$dokka.location:/Sportsman/height/#/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/height.html
+$dokka.location:/Sportsman/sportsType/#/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/sports-type.html
+$dokka.location:/Sportsman/weight/#/PointingToDeclaration/-sorting-algorithms/[root]/-sportsman/weight.html
+$dokka.location:databasesMappers////PointingToDeclaration/-sorting-algorithms/databasesMappers/index.html
+$dokka.location:databasesMappers/NamesDatabase///PointingToDeclaration/-sorting-algorithms/databasesMappers/-names-database/index.html
+$dokka.location:databasesMappers/NamesDatabase/NamesDatabase/#kotlin.collections.List[kotlin.String]#kotlin.collections.List[kotlin.String]#kotlin.collections.List[kotlin.String]#kotlin.collections.List[kotlin.String]#kotlin.collections.List[kotlin.String]#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-sorting-algorithms/databasesMappers/-names-database/-names-database.html
+$dokka.location:databasesMappers/NamesDatabase/femaleFirstNames/#/PointingToDeclaration/-sorting-algorithms/databasesMappers/-names-database/female-first-names.html
+$dokka.location:databasesMappers/NamesDatabase/femaleLastNames/#/PointingToDeclaration/-sorting-algorithms/databasesMappers/-names-database/female-last-names.html
+$dokka.location:databasesMappers/NamesDatabase/femaleMiddleNames/#/PointingToDeclaration/-sorting-algorithms/databasesMappers/-names-database/female-middle-names.html
+$dokka.location:databasesMappers/NamesDatabase/maleFirstNames/#/PointingToDeclaration/-sorting-algorithms/databasesMappers/-names-database/male-first-names.html
+$dokka.location:databasesMappers/NamesDatabase/maleLastNames/#/PointingToDeclaration/-sorting-algorithms/databasesMappers/-names-database/male-last-names.html
+$dokka.location:databasesMappers/NamesDatabase/maleMiddleNames/#/PointingToDeclaration/-sorting-algorithms/databasesMappers/-names-database/male-middle-names.html
+$dokka.location:databasesMappers/SportsDatabase///PointingToDeclaration/-sorting-algorithms/databasesMappers/-sports-database/index.html
+$dokka.location:databasesMappers/SportsDatabase/SportsDatabase/#kotlin.collections.List[kotlin.String]/PointingToDeclaration/-sorting-algorithms/databasesMappers/-sports-database/-sports-database.html
+$dokka.location:databasesMappers/SportsDatabase/summerOlympics/#/PointingToDeclaration/-sorting-algorithms/databasesMappers/-sports-database/summer-olympics.html
+$dokka.location:generators////PointingToDeclaration/-sorting-algorithms/generators/index.html
+$dokka.location:generators/OlympicTeamGenerator///PointingToDeclaration/-sorting-algorithms/generators/-olympic-team-generator/index.html
+$dokka.location:generators/OlympicTeamGenerator/OlympicTeamGenerator/#/PointingToDeclaration/-sorting-algorithms/generators/-olympic-team-generator/-olympic-team-generator.html
+$dokka.location:generators/OlympicTeamGenerator/generateTeam/#kotlin.Int/PointingToDeclaration/-sorting-algorithms/generators/-olympic-team-generator/generate-team.html
+$dokka.location:generators/OlympicTeamGenerator/generateTeamAndWriteToJSON/#kotlin.Int/PointingToDeclaration/-sorting-algorithms/generators/-olympic-team-generator/generate-team-and-write-to-j-s-o-n.html
+$dokka.location:generators/OlympicTeamGenerator/generateTeamsOfDifferentSizes/#kotlin.Array[kotlin.Int]/PointingToDeclaration/-sorting-algorithms/generators/-olympic-team-generator/generate-teams-of-different-sizes.html
+$dokka.location:generators/SportsmanGenerator///PointingToDeclaration/-sorting-algorithms/generators/-sportsman-generator/index.html
+$dokka.location:generators/SportsmanGenerator/SportsmanGenerator/#/PointingToDeclaration/-sorting-algorithms/generators/-sportsman-generator/-sportsman-generator.html
+$dokka.location:generators/SportsmanGenerator/generateSportsman/#/PointingToDeclaration/-sorting-algorithms/generators/-sportsman-generator/generate-sportsman.html
+databasesMappers
+generators
+
