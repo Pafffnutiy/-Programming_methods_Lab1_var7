@@ -88,24 +88,28 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
     /**
      * Helper for Pyramid sorting. Make pyramid from array
      * @param arr Array of Sportsmen
-     * @param k start index
+     * @param root root of heap
      * @param n end index
      * @return Unit
      */
     private fun heapify(arr: Array<Sportsman>, size: Int, root: Int) {
-        var largest = root
+        var largest = root // Initialize maximum element as root
         val left = 2 * root + 1
         val right = 2 * root + 2
+        // if left son bigger than root
         if (left < size && arr[root] < arr[left]) {
             largest = left
         }
+        // if right son bigger than the biggest element by now
         if (right < size && arr[largest] < arr[right]) {
             largest = right
         }
+        // if the biggest element is not root
         if (largest != root) {
             arr[root] = arr[largest].also {
                 arr[largest] = arr[root]
             }
+            // Recursively change affected subheap into heap
             heapify(arr, size, largest)
         }
     }
@@ -117,10 +121,13 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
      */
     fun sortPyramid(): OlympicTeam {
         val sortedTeam = team.toTypedArray()
+        // Building heap from array
         for (i in sortedTeam.size/2-1 downTo  0)
             heapify(sortedTeam, sortedTeam.size - 1, i)
 
+        // Extract the elements from the heap one by one
         for (i in sortedTeam.size-1 downTo 1) {
+            // Move current root into end
             sortedTeam[i] = sortedTeam[0].also {
                 sortedTeam[0] = sortedTeam[i]
             }
