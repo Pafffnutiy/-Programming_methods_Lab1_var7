@@ -86,30 +86,49 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
     }
 
     /**
+     * Helper for Pyramid sorting. Make pyramid from array
+     * @param arr Array of Sportsmen
+     * @param k start index
+     * @param n end index
+     * @return Unit
+     */
+    private fun heapify(arr: Array<Sportsman>, size: Int, root: Int) {
+        var largest = root
+        val left = 2 * root + 1
+        val right = 2 * root + 2
+        if (left < size && arr[root] < arr[left]) {
+            largest = left
+        }
+        if (right < size && arr[largest] < arr[right]) {
+            largest = right
+        }
+        if (largest != root) {
+            arr[root] = arr[largest].also {
+                arr[largest] = arr[root]
+            }
+            heapify(arr, size, largest)
+        }
+    }
+
+    /**
      * Pyramid sorting
      * @param Empty
      * @return sorted OlympicTeam
      */
     fun sortPyramid(): OlympicTeam {
-        val sortedTeam = team
-        val sortedTeamArray = sortedTeam.toTypedArray()
-        var i = sortedTeam.size / 2 - 1
-        while (i >= 0) {
-            // build pyramid
-            downHeap(sortedTeamArray, i, sortedTeamArray.size - 1)
-            i--
-        }
-        // now a[0]...a[size-1] is a pyramid
-        i = sortedTeamArray.size - 1
-        while (i > 0) {
-            sortedTeamArray[i] = sortedTeamArray[0].also {
-                sortedTeamArray[0] = sortedTeamArray[i]
+        val sortedTeam = team.toTypedArray()
+        for (i in sortedTeam.size/2-1 downTo  0)
+            heapify(sortedTeam, sortedTeam.size - 1, i)
+
+        for (i in sortedTeam.size-1 downTo 1) {
+            sortedTeam[i] = sortedTeam[0].also {
+                sortedTeam[0] = sortedTeam[i]
             }
-            downHeap(sortedTeamArray, 0, i - 1) // restore the pyramid a[0]...a[i-1]
-            i--
+
+            heapify(sortedTeam, i, 0)
         }
 
-        return OlympicTeam(sortedTeamArray.toList())
+        return OlympicTeam(sortedTeam.toList())
     }
 
     /**
@@ -142,32 +161,6 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
             val gsonPretty = GsonBuilder().setPrettyPrinting().create()
             gsonPretty.toJson(this, writer)
         }
-    }
-
-    /**
-     * helper for Pyramid sorting
-     * @param arr Array of Sportsmen
-     * @param k start index
-     * @param n end index
-     * @return Unit
-     */
-    private fun downHeap(arr: Array<Sportsman>, k: Int, n: Int) {
-        var child: Int
-        val newElem = arr[k]
-        var k1 = k
-
-        while (k1 <= n / 2) {  // while a[k] has childs
-            child = 2 * k1
-            //  choose bigger son
-            if (child < n && arr[child] < arr[child + 1])
-                child++
-
-            if (newElem >= arr[child]) break
-            // otherwise
-            arr[k1] = arr[child];    // move the son up
-            k1 = child;
-        }
-        arr[k1] = newElem;
     }
 
     /**
