@@ -9,6 +9,7 @@ import java.io.FileWriter
 class OlympicTeam(var team: List<Sportsman> = listOf()) {
     /**
      * Overriding of operator += for case
+     *
      * OlympicTeam += Sportsman
      * @param sportsman
      * @return Unit
@@ -19,6 +20,7 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
 
     /**
      * Overriding of operator + for case
+     *
      * OlympicTeam + Sportsman
      * @param sportsman
      * @return OlympicTeam
@@ -29,6 +31,7 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
 
     /**
      * Overriding of operator + for case
+     *
      * OlympicTeam + OlympicTeam
      * @param otherTeam
      * @return OlympicTeam
@@ -67,6 +70,10 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
 
     /**
      * Sorting by simple inserts
+     *
+     * stable and natural
+     *
+     * Time - O(n^2), O(n^2), O(n)
      * @param Empty
      * @return sorted OlympicTeam
      */
@@ -116,6 +123,10 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
 
     /**
      * Pyramid sorting
+     *
+     * unstable and unnatural
+     *
+     * Time - O(n log n)
      * @param Empty
      * @return sorted OlympicTeam
      */
@@ -139,7 +150,11 @@ class OlympicTeam(var team: List<Sportsman> = listOf()) {
     }
 
     /**
-     * Quick sorting
+     * Quick sorting.
+     *
+     * unstable and quite natural
+     *
+     * Time - O(n^2), O(nlogn), O(nlogn)
      * @param Empty
      * @return sorted OlympicTeam
      */
